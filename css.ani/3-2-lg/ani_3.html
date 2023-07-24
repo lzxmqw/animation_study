@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation-3</title>
+    <style>
+        main {display:flex; flex-flow:column nowrap;}
+        main #btn {cursor:pointer;}
+        /* 1. 버튼에 마우스 올렸을 때 target1배경색 변경하고싶을때 */
+        main #btn:hover ~.target1 { /* "+":바로옆에있어야함 "~":건너건너 형제여도 괜츈 */
+            background: aqua;
+        } 
+        main span {
+            width:100px;
+            height:100px;
+            background:lightgrey; padding:10px;
+        }
+        main .target1 {transition:background 1s 0.5s;} /* 1s: 재생시간 0.5s: 지연시간 */
+        main .target2 {animation:right500 2s linear 4 reverse;} /* linder 2 번하고 끝내라 */
+        main .target3 {}
+        main .target4 {}
+        main .target5 {}
+        /* animation + @keyframes */
+        @keyframes right500 {
+            0% {transform:translateX(0);}
+            100% {transform:translateX(500px);}
+        }
+        /* @keyframe 작성위치 style맨아래 또는 외부스타일분리 */
+        /* 1. 원하는 애니메이션 시작-끝 장면 정하기 */
+        /* 2. 해당 장면에 어울리는 이름으로 keyframes생성 */
+        /* 3. 적용 대상에 animation속성으로 ketframes 불러오기 */
+    </style>
+
+</head>
+<body>
+    <main>
+        <button id="btn">적용버튼</button>
+        <span class="target1">1</span>
+        <span class="target2">2</span>
+        <span class="target3">3</span>
+        <span class="target4">4</span>
+        <span class="target5">5</span>
+    </main>
+</body>
+</html>
